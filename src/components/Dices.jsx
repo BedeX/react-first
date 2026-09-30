@@ -1,8 +1,9 @@
 import React from 'react'
 import { FaDiceOne, FaDiceTwo, FaDiceThree, FaDiceFour, FaDiceFive, FaDiceSix } from "react-icons/fa6";
-import { Button } from '@heroui/react';
+import { Button, Surface } from '@heroui/react';
 import { useState } from 'react';
 import { generateRandNr } from '../utils';
+import { RandomQuote } from './RandomQuote';
 
 export const Dices = () => {
     const [nr, setnr] = useState(1)
@@ -22,6 +23,7 @@ export const Dices = () => {
             <h2>Dice roller</h2>
             <div>{diceComponents[nr]}</div>
             <Button onClick={() => setnr(generateRandNr(1,6))}>Roll Dice</Button>
+            <RandomQuote DiceValue={nr}/>
         </div>
     )
 }
